@@ -1,0 +1,108 @@
+body{
+    background-color: black;
+}
+#wrapper{
+    background-color: white;
+    color: darkslategrey;
+    width: 75%;
+    margin: 0px auto;
+}
+#articulos{
+    width: 70%;
+    float: left;   
+}
+header, footer{
+    width: auto;
+    background-color: yellow;
+}
+
+nav{
+    width: auto;
+    background-color: darkslategrey;
+    text-align: center;
+    font-size: large;
+}
+
+nav ul li{
+    display:inline;
+    padding: 5px;
+}
+
+article a, article a:visited, aside a{
+    color: darkslategrey;
+    text-decoration: none;
+}
+
+nav a{
+    color: white;
+    padding: 5px;
+    text-decoration: none;
+}
+nav a:hover{
+    color: darkslategrey;
+    background-color: white;
+    font-size: larger;
+}
+
+figure{
+    width: 40%;
+
+    float: left;
+}
+figure img{
+    width: 70%;
+}
+article{
+    float: left;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding: 10px;
+}
+aside{
+    text-align: center;
+    float:right;
+    width: 20%;
+    padding: 5px;
+   
+}
+
+aside li{
+    list-style: none;
+}
+footer{
+    clear: both;
+}
+
+.contenidoCentrar figure{
+    float: none;
+    margin: 0px auto;
+}
+
+.contenidoCentrar p{
+    padding: 25px;
+}
+fieldset{
+    width: 60%;
+    text-align: left;
+}
+legend{
+    text-align: center;
+}
+fieldset label{
+    display: inline-block;
+    width: 45%;
+    padding: 5px;
+}
+fieldset input[type = "text"] input[type = "date"]{
+    width: 35%;
+    margin: 5px;
+}
+button{
+    margin-top: 15px;
+}
+#cuadroFichas{
+    border: 1px solid black;
+    width: 60%;
+    text-align: left;
+}

@@ -1,6 +1,8 @@
 var nombre = document.getElementById("nombre");
 var apellido = document.getElementById("apellido");
 var ano = document.getElementById("ano");
+var anoPublicacion = "sf"; //Esto es para que, al momento de generar la ficha, en caso de que
+                    //este vacio el campo, pueda cambiarlo por "sf"
 var titulo = document.getElementById("titulo");
 var fecha = document.getElementById("fecha");
 var url = document.getElementById("url");
@@ -12,13 +14,17 @@ var btnLimpiar = document.getElementById("btnLimpiar");
 var fichas = document.getElementById("fichas");
 var btnBorrarFichas = document.getElementById("btnBorrarFichas");
 var librosOWeb = document.getElementById("librosOWeb");
+var ficha = "";
 
-function verificarInput(){
-    var input = ano.value;
-    if(isNaN(input) || input <= 0){
+function verificarAnoPublicacion(){
+    if(isNaN(ano.value) || ano.value <= 0){
         alert("Solo puedes ingresar numeros mayores a cero (0) en este campo");
         ano.value = "";
+        anoPublicacion = "sf";
+    }else{
+        anoPublicacion = ano.value;
     }
+    
 }
 function limpiarTexto(){
     if(librosOWeb.textContent == "Paginas Web"){
@@ -27,6 +33,7 @@ function limpiarTexto(){
     for(i = 0; i < texto.length; i++){
         texto[i].value = "";
     }
+    anoPublicacion = "sf";
    
 }
 function borrarFichas(){
@@ -44,17 +51,16 @@ function obtenerFecha(){
     var f = new Date(fecha.value);
     var dia = f.getDate() + 1;
     var mes = f.getMonth() + 1;
-    var anoPublicacion = f.getFullYear();
+    var anoDePublicacion = f.getFullYear();
 
     var meses = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto",
 "septiembre", "octubre", "noviembre", "diciembre"];
     mesEscrito = meses[mes - 1]; //mes devuelve un numero. Ese numero lo usaremos para acceder
     //al mes equivalente en el array 'meses', para poder obtener el mes en formato escrito
-    var fechaCompleta = [dia, mes, anoPublicacion, mesEscrito];
+    var fechaCompleta = [dia, mes, anoDePublicacion, mesEscrito];
     return fechaCompleta;
 
 }
-
 function verificarCamposObligatorios(){
     var camposLlenos = true;
     for(i = 3; i < texto.length; i++){ //En ambos generadores, son los tres ultimos campos
@@ -81,27 +87,20 @@ function generarFichaWeb(){
         camposObligatoriosLlenos = false;
     }
     var fechaCompleta = obtenerFecha();
-    var ficha = "";
+
     if(camposObligatoriosLlenos){
-        if(nombre.value == "" && apellido.value == "" && ano.value == ""){
-            ficha = titulo.value + ". (sf). Recuperado en " + fechaCompleta[3] + " " + fechaCompleta[0] 
+        if(nombre.value == "" && apellido.value == ""){
+            ficha = titulo.value + ". (" + anoPublicacion + "). Recuperado en " + fechaCompleta[3] + " " + fechaCompleta[0] 
             + ", " + fechaCompleta[2] + ", de " + url.value;
-        }else if(nombre.value == "" && apellido.value == ""){
-            ficha = titulo.value + ". (" + ano.value + "). Recuperado en " + fechaCompleta[3] + " " 
-            + fechaCompleta[0]  + ", " + fechaCompleta[2] + ", de " + url.value;
         }else if(nombre.value != "" && apellido.value == ""){
-            ficha = nombre.value + ". (" + ano.value + "). " + titulo.value + ". Recuperado en " + 
+            ficha = nombre.value + ". (" + anoPublicacion + "). " + titulo.value + ". Recuperado en " + 
             fechaCompleta[3] + " " + fechaCompleta[0] + ", " + fechaCompleta[2] + ", de " + url.value;
         }else if(apellido.value != "" && nombre.value == ""){
-            ficha = apellido.value + ". (" + ano.value + "). " + titulo.value + ". Recuperado en " + 
+            ficha = apellido.value + ". (" + anoPublicacion + "). " + titulo.value + ". Recuperado en " + 
             fechaCompleta[3] + " " + fechaCompleta[0] + ", " + fechaCompleta[2] + ", de " + url.value;
-        }else if(ano.value == ""){
-            ficha = apellido.value + ", " + nombre.value[0] + ".  " + titulo.value 
-            + ". (sf). Recuperado en " + fechaCompleta[3]  + " " + fechaCompleta[0]  + ", " 
-            + fechaCompleta[2] + ", de " + url.value;
         }else{
             ficha = apellido.value + ", " + nombre.value[0] + ". " + titulo.value 
-            + ". (" + ano.value + "). Recuperado en " + fechaCompleta[3] + " " + fechaCompleta[0]  + ", " 
+            + ". (" + anoPublicacion + "). Recuperado en " + fechaCompleta[3] + " " + fechaCompleta[0]  + ", " 
             + fechaCompleta[2] + ", de " + url.value;
         }
         alert("La ficha ha sido generada con exito");
@@ -116,27 +115,21 @@ function generarFichaWeb(){
         alert("Por favor, llene los campos obligatorios");
     }
 }
-
 function generarFichaLibro(){
     var camposObligatorios = verificarCamposObligatorios();
-    var ficha = "";
+    
     if(camposObligatorios){
-        if(nombre.value == "" && apellido.value == "" && ano.value == ""){
-            ficha = titulo.value + ". (sf). " + pais.value + ": " + editorial.value;
-        }else if(nombre.value == "" && apellido.value == ""){
-            ficha = titulo.value + ". (" + ano.value + "). " + pais.value + ": " + editorial.value;
-        }else if(nombre.value != "" && apellido.value == ""){
-            ficha = nombre.value + ". (" + ano.value + "). " + titulo.value + ". " + pais.value + ": " 
+        if(nombre.value == "" && apellido.value == ""){
+            ficha = titulo.value + ". (" + anoPublicacion + "). " + pais.value + ": " + editorial.value;
+        }else if(nombre.value != "" && apellido.value == "" ){
+            ficha = nombre.value + ". (" + anoPublicacion + "). " + titulo.value + ". " + pais.value + ": " 
             + editorial.value; 
         }else if(apellido.value != "" && nombre.value == ""){
-            ficha = apellido.value + ". (" + ano.value + "). " + titulo.value + ". " + pais.value + ": " 
+            ficha = apellido.value + ". (" + anoPublicacion + "). " + titulo.value + ". " + pais.value + ": " 
             + editorial.value; 
         }
-        else if(ano.value == ""){
-            ficha = apellido.value + ", " + nombre.value[0] + ". (sf). " + titulo.value + ". " 
-            + pais.value + ": " + editorial.value; 
-        }else{
-            ficha = apellido.value + ", " + nombre.value[0] + ". (" + ano.value + "). " + titulo.value + ". " 
+        else{
+            ficha = apellido.value + ", " + nombre.value[0] + ". (" + anoPublicacion + "). " + titulo.value + ". " 
             + pais.value + ": " + editorial.value; 
         }
         alert("La ficha ha sido generada con exito");
@@ -151,8 +144,7 @@ function generarFichaLibro(){
         alert("Por favor, llene los campos obligatorios");
     }
 }
-
-ano.addEventListener("keyup", verificarInput, false);
+ano.addEventListener("keyup", verificarAnoPublicacion, false);
 btnLimpiar.addEventListener("click", limpiarTexto, false);
 btnBorrarFichas.addEventListener("click", borrarFichas, false);
 btnGenerar.addEventListener("click", generarFicha, false);

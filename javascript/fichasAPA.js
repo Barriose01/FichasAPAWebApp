@@ -89,6 +89,12 @@ function generarFichaWeb(){
         }else if(nombre.value == "" && apellido.value == ""){
             ficha = titulo.value + ". (" + ano.value + "). Recuperado en " + fechaCompleta[3] + " " 
             + fechaCompleta[0]  + ", " + fechaCompleta[2] + ", de " + url.value;
+        }else if(nombre.value != "" && apellido.value == ""){
+            ficha = nombre.value + ". (" + ano.value + "). " + titulo.value + ". Recuperado en " + 
+            fechaCompleta[3] + " " + fechaCompleta[0] + ", " + fechaCompleta[2] + ", de " + url.value;
+        }else if(apellido.value != "" && nombre.value == ""){
+            ficha = apellido.value + ". (" + ano.value + "). " + titulo.value + ". Recuperado en " + 
+            fechaCompleta[3] + " " + fechaCompleta[0] + ", " + fechaCompleta[2] + ", de " + url.value;
         }else if(ano.value == ""){
             ficha = apellido.value + ", " + nombre.value[0] + ".  " + titulo.value 
             + ". (sf). Recuperado en " + fechaCompleta[3]  + " " + fechaCompleta[0]  + ", " 
@@ -101,11 +107,11 @@ function generarFichaWeb(){
         alert("La ficha ha sido generada con exito");
         limpiarTexto();
         if(fichas.textContent == "-No hay fichas para mostrar"){
-            fichas.innerHTML = "-" +ficha + "<br>"; 
+            fichas.innerHTML = "-" +ficha + "<br><br>"; //Pongo dos <br> para que haya mas espacio
+                                                         //entre fichas
         }else{
-            fichas.innerHTML +=  "-" + ficha + "<br>";
-        }
-        
+            fichas.innerHTML +=  "-" + ficha + "<br><br>";
+        }   
     }else{
         alert("Por favor, llene los campos obligatorios");
     }
@@ -119,7 +125,14 @@ function generarFichaLibro(){
             ficha = titulo.value + ". (sf). " + pais.value + ": " + editorial.value;
         }else if(nombre.value == "" && apellido.value == ""){
             ficha = titulo.value + ". (" + ano.value + "). " + pais.value + ": " + editorial.value;
-        }else if(ano.value == ""){
+        }else if(nombre.value != "" && apellido.value == ""){
+            ficha = nombre.value + ". (" + ano.value + "). " + titulo.value + ". " + pais.value + ": " 
+            + editorial.value; 
+        }else if(apellido.value != "" && nombre.value == ""){
+            ficha = apellido.value + ". (" + ano.value + "). " + titulo.value + ". " + pais.value + ": " 
+            + editorial.value; 
+        }
+        else if(ano.value == ""){
             ficha = apellido.value + ", " + nombre.value[0] + ". (sf). " + titulo.value + ". " 
             + pais.value + ": " + editorial.value; 
         }else{
@@ -129,9 +142,10 @@ function generarFichaLibro(){
         alert("La ficha ha sido generada con exito");
         limpiarTexto();
         if(fichas.textContent == "-No hay fichas para mostrar"){
-            fichas.innerHTML = "-" +ficha + "<br>"; 
+            fichas.innerHTML = "-" +ficha + "<br><br>"; //Pongo dos <br> para que haya mas espacio
+                                                         //entre fichas
         }else{
-            fichas.innerHTML +=  "-" + ficha + "<br>";
+            fichas.innerHTML +=  "-" + ficha + "<br><br>";
         }
     }else{
         alert("Por favor, llene los campos obligatorios");

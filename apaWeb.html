@@ -1,63 +1,70 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Generador de Fichas APA para Paginas Web</title>
-        <link rel="stylesheet" href="css/paginaAPA.css">
-    </head>
-    <body>
-        <div id = "wrapper">
-            <header>
-                <h1>Generador de Fichas APA</h1>
-                <h3>Para Libros y para Webs</h3>
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="apaLibro.html">Fichas APA en Libros</a></li>
-                        <li><a href="apaWeb.html">Fichas APA en Web</a></li>
-                        <li><a href="acercaDe.html">Acerca de</a></li>
-                    </ul>
-                </nav>
-            </header>
-            <div class="contenidoCentrar">
-                <center>Generador de Ficha APA para <span id="librosOWeb">Paginas Web</span></center>
-                <figure>
-                    <img src="imagenes/web.jpg">
-                    <figcaption>Generador APA Web</figcaption>
-                </figure>
-                <p>Esta aplicacion es escencial para generar fichas bibliograficas en
-                    formato APA, siempre que la fuente sea un articulo en una pagina web. Para poder
-                generar una ficha, se debe completar el formulario que aparece abajo.</p>
-                <center>
-                    <fieldset>
-                        <legend>Generador de Ficha APA para Paginas Web</legend>
-                        <label for="nombre">Nombre del autor (EJ: Jack): </label>
-                        <input id="nombre" type="text" name="nombre">
-                        <label for="apellido">Apellido del autor (EJ: Caulfield): </label>
-                        <input id="apellido" type="text" name="apellido">
-                        <label for="ano">Año de publicacion (EJ: 2016 ): </label>
-                        <input id="ano" type="text" name="ano">
-                        <label for="titulo">*Titulo del articulo (EJ: Cómo citar una página web en formato APA): </label>
-                        <input id="titulo" type="text" name="ano">
-                        <label for="fecha">*Fecha de recuperacion (EJ: 11/29/2016): </label>
-                        <input id="fecha" type="date" name="fecha">
-                        <label for="url">*Enlace de recuperacion (EJ: https://www.scribbr.es/normas-apa/ejemplos/pagina-web/)</label>
-                        <input id="url" type="text" name="url">
-                        <center><button id = "btnGenerar" >Generar ficha</button>
-                            <button id = "btnLimpiar">Limpiar</button>
-                        </center>
-                        * = Campos obligatorios
-                    </fieldset>
-                    <h2>Fichas</h2>
-                    <p>Aqui se mostraran las fichas en formato APA que se generen al llenar el formulario</p>
-                    <div id="cuadroFichas">
-                        <span id="fichas">-No hay fichas para mostrar</span>
-                    </div>
-                    <button id="btnBorrarFichas">Borrar fichas</button>
-                </center>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/paginaAPA.css">
+    <title>Generador de Fichas APA para Paginas Web</title>
+</head>
+<body>
+    <div id = "wrapper">
+        <header>
+            <h1>Generador de Fichas APA</h1>
+            <h3>Para Libros y para Webs</h3>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="apaLibro.html">Fichas APA en Libros</a></li>
+                    <li><a href="apaWeb.html">Fichas APA en Web</a></li>
+                    <li><a href="acercaDe.html">Acerca de</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="contenidoCentrar">
+            <center><h1>Generador de Ficha APA para <span id="librosOWeb">Paginas Web</span></h1></center>
+            <figure>
+                <img src="imagenes/web.jpg">
+                <figcaption>Generador APA Web</figcaption>
+            </figure>
+            <p>Esta aplicacion es escencial para generar fichas bibliograficas en
+                formato APA, siempre que la fuente sea un articulo en una pagina web. Para poder
+            generar una ficha, se debe completar el formulario que aparece abajo.</p>
+            <center>
+                <fieldset>
+                    <legend>Generador de Ficha APA para Paginas Web</legend>
+                    <label for="nombre">Nombre del autor (EJ: Jack): </label>
+                    <input id="nombre" type="text" name="nombre">
+                    <label for="apellido">Apellido del autor (EJ: Caulfield): </label>
+                    <input id="apellido" type="text" name="apellido">
+                    <label for="ano">Año de publicacion (EJ: 2016 ): </label>
+                    <input id="ano" type="text" name="ano">
+                    <label for="titulo">*Titulo del articulo (EJ: Cómo citar una página web en formato APA): </label>
+                    <input id="titulo" type="text" name="ano">
+                    <label for="fecha">*Fecha de recuperacion (EJ: 11/29/2016): </label>
+                    <input id="fecha" type="date" name="fecha">
+                    <label for="url">*Enlace de recuperacion (EJ: https://www.scribbr.es/normas-apa/ejemplos/pagina-web/)</label>
+                    <input id="url" type="text" name="url">
+                    <center><button id = "btnGenerar" >Generar ficha</button>
+                        <button id = "btnLimpiar">Limpiar</button>
+                    </center>
+                    * = Campos obligatorios
+                </fieldset>
+                <h2>Fichas</h2>
+                <p>Aqui se mostraran las fichas en formato APA que se generen al llenar el formulario</p>
+                <div id="cuadroFichas">
+                    <span id="fichas">-No hay fichas para mostrar</span>
+                </div>
+                <button id="btnBorrarFichas">Borrar fichas</button>
+            </center>
 
-            </div>
-            <footer>&copy Eddie Casanas 2022</footer>
         </div>
-        <script src="javascript/fichasAPA.js"></script>
-    </body>
+        <footer>&copy Eddie Casanas 2022</footer>
+    </div>
+    <script src="javascript/fichasAPA.js"></script>
+</body>
 </html>
+
+
+
+

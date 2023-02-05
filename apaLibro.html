@@ -1,65 +1,69 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Generador de Fichas APA para Libros</title>
-        <link rel="stylesheet" href="css/paginaAPA.css">
-    </head>
-    <body>
-        <div id = "wrapper">
-            <header>
-                <h1>Generador de Fichas APA</h1>
-                <h3>Para Libros y para Webs</h3>
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="apaLibro.html">Fichas APA en Libros</a></li>
-                        <li><a href="apaWeb.html">Fichas APA en Web</a></li>
-                        <li><a href="acercaDe.html">Acerca de</a></li>
-                    </ul>
-                </nav>
-            </header>
-           
-            <div class="contenidoCentrar">
-                <center><h1>Generador de Ficha APA para <span id="librosOWeb">libros</span></h1></center>
-                <figure>
-                    <img src="imagenes/libro.jpg">
-                    <figcaption>Generador APA para libros</figcaption>
-                </figure>
-                <p>Esta aplicacion es escencial para generar fichas bibliograficas en Formato
-                    APA, siempre y cuando la fuente sea un libro. Para poder generar esta ficha,
-                    se debe completar el formulario que aparece mas abajo.
-                </p>
-                <center>
-                    <fieldset>
-                        <legend>Generador de Ficha APA para libros</legend>
-                        <label for="nombre">Nombre del autor (EJ: Miguel): </label>
-                        <input id="nombre" type="text" name="nombre">
-                        <label for="apellido">Apellido del autor (EJ: De Cervantes): </label>
-                        <input id="apellido" type="text" name="apellido">
-                        <label for="ano">Año de publicacion (EJ: 1605): </label>
-                        <input id="ano" type="text" name="ano">
-                        <label for="titulo">*Titulo del libro (EJ: Don Quijote de La Mancha): </label>
-                        <input id="titulo" type="text" name="titulo">
-                        <label for="pais">*Pais de publicacion (EJ: España): </label>
-                        <input id="pais" type="text" name="pais">
-                        <label for="editorial">*Editorial (EJ: Imprenta de Juan de la Cuesta): </label>
-                        <input id="editorial" type="text" name="editorial">
-                        <center><button id = "btnGenerar" >Generar ficha</button>
-                            <button id = "btnLimpiar">Limpiar</button>
-                        </center>
-                        * = Campos obligatorios.
-                    </fieldset>
-                    <h2>Fichas</h2>
-                    <p>Aqui se mostraran las fichas en formato APA que se generen al llenar el formulario</p>
-                    <div id="cuadroFichas">
-                        <span id="fichas">-No hay fichas para mostrar</span>
-                    </div>
-                    <button id="btnBorrarFichas">Borrar fichas</button>
-                </center>
-                
-            </div>
-            <footer>&copy Eddie Casanas 2022</footer>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/paginaAPA.css">
+    <title>Generador de Fichas APA para Libros</title>
+    
+</head>
+<body>
+    <div id = "wrapper">
+        <header>
+            <h1>Generador de Fichas APA</h1>
+            <h3>Para Libros y para Webs</h3>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="apaLibro.html">Fichas APA en Libros</a></li>
+                    <li><a href="apaWeb.html">Fichas APA en Web</a></li>
+                    <li><a href="acercaDe.html">Acerca de</a></li>
+                </ul>
+            </nav>
+        </header>
+       
+        <div class="contenidoCentrar">
+            <center><h1>Generador de Ficha APA para <span id="librosOWeb">libros</span></h1></center>
+            <figure>
+                <img src="imagenes/libro.jpg">
+                <figcaption>Generador APA para libros</figcaption>
+            </figure>
+            <p>Esta aplicacion es escencial para generar fichas bibliograficas en Formato
+                APA, siempre y cuando la fuente sea un libro. Para poder generar esta ficha,
+                se debe completar el formulario que aparece mas abajo.
+            </p>
+            <center>
+                <fieldset>
+                    <legend>Generador de Ficha APA para libros</legend>
+                    <label for="nombre">Nombre del autor (EJ: Miguel): </label>
+                    <input id="nombre" type="text" name="nombre">
+                    <label for="apellido">Apellido del autor (EJ: De Cervantes): </label>
+                    <input id="apellido" type="text" name="apellido">
+                    <label for="ano">Año de publicacion (EJ: 1605): </label>
+                    <input id="ano" type="text" name="ano">
+                    <label for="titulo">*Titulo del libro (EJ: Don Quijote de La Mancha): </label>
+                    <input id="titulo" type="text" name="titulo">
+                    <label for="pais">*Pais de publicacion (EJ: España): </label>
+                    <input id="pais" type="text" name="pais">
+                    <label for="editorial">*Editorial (EJ: Imprenta de Juan de la Cuesta): </label>
+                    <input id="editorial" type="text" name="editorial">
+                    <center><button id = "btnGenerar" >Generar ficha</button>
+                        <button id = "btnLimpiar">Limpiar</button>
+                    </center>
+                    * = Campos obligatorios.
+                </fieldset>
+                <h2>Fichas</h2>
+                <p>Aqui se mostraran las fichas en formato APA que se generen al llenar el formulario</p>
+                <div id="cuadroFichas">
+                    <span id="fichas">-No hay fichas para mostrar</span>
+                </div>
+                <button id="btnBorrarFichas">Borrar fichas</button>
+            </center>
+            
         </div>
-        <script src="javascript/fichasAPA.js"></script>
-    </body>
+        <footer>&copy Eddie Casanas 2022</footer>
+    </div>
+    <script src="javascript/fichasAPA.js"></script>
+</body>
 </html>

@@ -1,15 +1,29 @@
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+
 body{
     background-color: black;
 }
+body, header h1, header h3{
+    margin: 0;
+}
+
 #wrapper{
     background-color: white;
     color: darkslategrey;
-    width: 75%;
-    margin: 0px auto;
+    overflow: hidden;
 }
 #articulos{
     width: 70%;
     float: left;   
+}
+header h1{
+    margin-bottom: 10px;
 }
 header, footer{
     width: auto;
@@ -56,7 +70,7 @@ article{
     float: left;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    overflow:hidden;
     padding: 10px;
 }
 aside{
@@ -69,6 +83,7 @@ aside{
 
 aside li{
     list-style: none;
+    margin: 10px 0;
 }
 footer{
     clear: both;
